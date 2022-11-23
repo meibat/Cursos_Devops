@@ -28,7 +28,7 @@ jobs:
       run: cd ./Alura-Devops/AppRazor && dotnet restore
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: cd ./Alura-Devops/AppRazor && dotnet test --no-restore --verbosity normal
       
   
   build:

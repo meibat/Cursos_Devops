@@ -5,8 +5,8 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-    - '**.cs'
-    - '**.csproj'
+    - './**.cs'
+    - './**.csproj'
 
 jobs:
   test:
@@ -15,7 +15,7 @@ jobs:
       DOTNET_VERSION: '6.0'
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, windows-latest]
     steps:
     - uses: actions/checkout@v3
 
@@ -25,7 +25,7 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Install dependencies
-      run: dotnet restore
+      run: cd  & dotnet restore
     
     - name: Test
       run: dotnet test --no-restore --verbosity normal

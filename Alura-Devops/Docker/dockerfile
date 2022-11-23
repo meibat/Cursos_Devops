@@ -1,8 +1,7 @@
-FROM node:14
-WORKDIR /app-node
+FROM ubuntu:latest
+WORKDIR /app
 ARG PORT=3000
-ENV $PORT
+ENV PORT=$PORT
 EXPOSE $PORT
-COPY . .
-RUN npm install
-ENTRYPOINT npm start
+COPY ./AppRazor AppRazor 
+CMD ["./AppRazor"]

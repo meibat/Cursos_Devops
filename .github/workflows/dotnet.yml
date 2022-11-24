@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.1
       with:
         name: program on dotnet
-        path: AppRazor
+        path: ./Alura-Devops/AppRazor
 
   docker:
     needs: build

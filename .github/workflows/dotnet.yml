@@ -50,9 +50,5 @@ jobs:
     uses: ./.github/workflows/Docker.yml
     secrets: inherit
     
-  deploy:
-    needs: docker
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Conection on VM
+
       

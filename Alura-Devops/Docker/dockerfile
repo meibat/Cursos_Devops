@@ -4,4 +4,4 @@ ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE $PORT
 COPY ./Alura-Devops/AppRazor AppRazor 
-CMD ["./AppRazor"]
+CMD ["chmod u+x ./AppRazor","./AppRazor"]

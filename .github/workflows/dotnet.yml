@@ -15,7 +15,7 @@ jobs:
       DOTNET_VERSION: '6.0'
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
 
@@ -33,15 +33,26 @@ jobs:
   
   build:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - name: build
       run: cd ./Alura-Devops/AppRazor && dotnet build --configuration Release --no-restore
-
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: program on dotnet
+        path: ./Alura-Devops/AppRazor
 
   docker:
     needs: build
     uses: ./.github/workflows/Docker.yml
     secrets: inherit
     
+  deploy:
+    needs: docker
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Conection on VM
+      

@@ -3,5 +3,6 @@ WORKDIR /app
 ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE $PORT
-COPY ./Alura-Devops/AppRazor AppRazor 
-CMD ["chmod a+x ./AppRazor","cd ./AppRazor", "dotnet run"]
+COPY ./Alura-Devops/AppRazor AppRazor
+RUN chmod a+x ./AppRazor
+CMD ["./AppRazor"]

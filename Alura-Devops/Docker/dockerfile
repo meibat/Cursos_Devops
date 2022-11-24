@@ -9,4 +9,4 @@ RUN apt-get update && \
 COPY ./Alura-Devops/AppRazor AppRazor
 RUN chmod +x ./AppRazor
 RUN ls -a
-CMD ["dotnet run", "./AppRazor"]
+CMD ["dotnet", "./AppRazor"]

@@ -3,5 +3,5 @@ WORKDIR /app
 ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE $PORT
-COPY ./AppRazor AppRazor 
+COPY ./Alura-Devops/AppRazor AppRazor 
 CMD ["./AppRazor"]

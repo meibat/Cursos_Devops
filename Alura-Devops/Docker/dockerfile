@@ -8,5 +8,5 @@ RUN apt-get update && \
     apt-get install -y dotnet-runtime-6.0
 COPY ./Alura-Devops/AppRazor AppRazor
 RUN chmod +x ./AppRazor
-RUN la
+RUN ls -a
 CMD ["dotnet run", "./AppRazor"]

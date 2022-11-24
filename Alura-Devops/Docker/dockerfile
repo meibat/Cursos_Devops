@@ -8,5 +8,7 @@ RUN apt-get update && \
     apt-get install -y dotnet-runtime-6.0
 COPY ./Alura-Devops/AppRazor AppRazor
 RUN chmod +x ./AppRazor
+RUN dotnet restore "./AppRazor/AppRazor.csproj"
+RUN dotnet publish "./AppRazor/AppRazor.csproj"
 RUN ls -a
 CMD ["dotnet", "./AppRazor"]

@@ -3,7 +3,7 @@ WORKDIR /app
 ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE $PORT
-RUN sudo sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-6.0
+RUN sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-6.0
 COPY ./Alura-Devops/AppRazor AppRazor
 RUN chmod +x ./AppRazor
 ENTRYPOINT ["dotnet", "./AppRazor.dll"]

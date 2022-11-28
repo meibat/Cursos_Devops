@@ -30,4 +30,4 @@ jobs:
         context: .
         file: ./Alura-Devops/Docker/dockerfile
         push: true
-        tags: ${{ secrets.USERNAME_DOCKER_HUB }}/apprazor_ci:${{github.ref_name}}
+        tags: ${{ secrets.USERNAME_DOCKER_HUB }}/apprazor:${{github.ref_name}}

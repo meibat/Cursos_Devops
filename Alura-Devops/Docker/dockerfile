@@ -1,14 +1,19 @@
-FROM ubuntu:latest
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
-ARG PORT=3000
-ENV PORT=$PORT
-EXPOSE $PORT
-RUN apt-get update && \
-    apt-get install -y dotnet-sdk-6.0 && \ 
-    apt-get install -y dotnet-runtime-6.0
-COPY ./Alura-Devops/AppRazor AppRazor
-RUN chmod +x ./AppRazor
-RUN dotnet restore "./AppRazor/AppRazor.csproj"
-RUN dotnet publish "./AppRazor/AppRazor.csproj"
-RUN ls -a
-CMD ["dotnet", "./AppRazor"]
+
+# Copy project for image
+COPY ./AppRazor ./AppRazor/
+RUN cd ./AppRazor
+
+# Build
+RUN cd ./AppRazor && dotnet build && dotnet restore ./AppRazor.csproj && dotnet publish -c Release -o out
+
+RUN ls -a && pwd && cd ./AppRazor && ls -a
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+WORKDIR /app
+COPY --from=build-env /app/AppRazor/out ./
+
+EXPOSE 8080
+CMD ["dotnet", "AppRazor.dll"]

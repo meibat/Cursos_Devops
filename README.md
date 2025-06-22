@@ -1,5 +1,12 @@
 # Cursos_Devops
 Repositório criado seguindo a trilha [ROADMAP DEVOPS](https://roadmap.sh/devops).
+
+## Por que esse repositório está Público?
+Recomendo a todos que estão ainda no começo de sua trajetória se aprofundar o máximo possível nos fundamentos de lógica de programação, pois será sua base em tudo que fará na sua jornada de programação. Por esse motivo mantenho todos os meus repositórios de estudo abertos para quem quiser utilizar como base em seus estudos. 
+
+## Lembre-se: 
+Saber a linguagem não é tão importante quanto saber como usá-la para resolver problemas.
+
 ## Projetos 
 ### Alura
 * [Docker](https://github.com/melissa-mfs/Cursos_Devops/tree/main/Alura-Devops/Docker)
